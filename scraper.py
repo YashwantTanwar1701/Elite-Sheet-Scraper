@@ -55,7 +55,7 @@ KEEP_UPPERCASE = {"USA", "UAE"}
 # ── LEAGUES ───────────────────────────────────────────────────────────────────
 URLS = {
 
-    "LIGA I (Romania)":                     "https://www.soccerway.com/romania/superliga/fixtures/",
+    "LIGA I (Romania)":                "https://www.soccerway.com/romania/superliga/fixtures/"
 
 }
 
