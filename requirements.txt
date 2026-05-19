@@ -1,0 +1,6 @@
+selenium
+webdriver-manager
+pytz
+gspread
+google-auth
+pandas

@@ -1,0 +1,42 @@
+name: Football Fixtures Scraper
+
+on:
+  # Run automatically every day at 06:00 IST (00:30 UTC)
+  schedule:
+    - cron: "30 0 * * *"
+
+  # Also allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60       # kill if it hangs
+
+    steps:
+      # 1. Check out the repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 4. Install Chrome + ChromeDriver
+      #    ubuntu-latest already ships Chrome; this ensures the latest version
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      # 5. Run the scraper
+      - name: Run scraper
+        env:
+          SPREADSHEET_ID:         ${{ secrets.SPREADSHEET_ID }}
+          GOOGLE_CREDENTIALS_B64: ${{ secrets.GOOGLE_CREDENTIALS_B64 }}
+        run: python scraper.py
