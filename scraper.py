@@ -54,9 +54,7 @@ KEEP_UPPERCASE = {"USA", "UAE"}
 
 # ── LEAGUES ───────────────────────────────────────────────────────────────────
 URLS = {
-    "Belgian Cup":                          "https://www.soccerway.com/belgium/belgian-cup/fixtures/",
-    "First Division B":                     "https://www.soccerway.com/belgium/challenger-pro-league/fixtures/",
-    "Jupiler Pro League":                   "https://www.soccerway.com/belgium/jupiler-pro-league/fixtures/",
+    
     "Brasileiro Women":                     "https://www.soccerway.com/brazil/brasileiro-women/fixtures/",
     "Super League (China)":                 "https://www.soccerway.com/china/super-league/fixtures/",
     "Czech Cup":                            "https://www.soccerway.com/czech-republic/mol-cup/fixtures/",
