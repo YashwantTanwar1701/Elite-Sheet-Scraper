@@ -54,45 +54,47 @@ KEEP_UPPERCASE = {"USA", "UAE"}
 
 # ── LEAGUES ───────────────────────────────────────────────────────────────────
 URLS = {
-
-    'Brazil-Brasileiro Women': 'https://www.soccerway.com/brazil/brasileiro-women/fixtures/',
-'China-Super League': 'https://www.soccerway.com/china/super-league/fixtures/',
-'CZECH REPUBLIC-Chance Liga': 'https://www.soccerway.com/czech-republic/chance-liga/fixtures/',
-'England-EFL Cup': 'https://www.soccerway.com/england/efl-cup/fixtures/',
-'England-FA Cup': 'https://www.soccerway.com/england/fa-cup/fixtures/',
-'England-Premier League': 'https://www.soccerway.com/england/premier-league/fixtures/',
-'England-Womens Championship': 'https://au.soccerway.com/england/wsl-2/fixtures/',
-'England-Womens League Cup': 'https://www.soccerway.com/england/women-s-league-cup/fixtures/',
-'England-WSL': 'https://www.soccerway.com/england/wsl/fixtures/',
-'England-Championship': 'https://www.soccerway.com/england/championship/fixtures/',
-'England-League One': 'https://www.soccerway.com/england/league-one/fixtures/',
-'England-League Two': 'https://www.soccerway.com/england/league-two/fixtures/',
-'England-U18s Professional Development League': 'https://www.soccerway.com/england/premier-league-u18/fixtures/',
-'England-U23s Professional Development League': 'https://www.soccerway.com/england/professional-development-league/fixtures/',
-'Scotland-Premiership': 'https://www.soccerway.com/scotland/premiership/fixtures/',
-'Germany-Bundesliga': 'https://www.soccerway.com/germany/bundesliga/fixtures/',
-'Italy-Serie A': 'https://www.soccerway.com/italy/serie-a/fixtures/',
-'Italy-Serie B': 'https://www.soccerway.com/italy/serie-b/fixtures/',
-'Italy-Serie C - Group A': 'https://www.soccerway.com/italy/serie-c-group-a/fixtures/',
-'Italy-Serie C - Group B': 'https://www.soccerway.com/italy/serie-c-group-b/fixtures/',
-'Italy-Serie C - Group C': 'https://www.soccerway.com/italy/serie-c-group-c/fixtures/',
-'Italy-Serie C - Promotion - Play Offs': 'https://www.soccerway.com/italy/serie-c-promotion-play-offs/fixtures/#/Eu1PLKgD/draw/',
-'Italy-Serie C - Play Out': 'https://www.soccerway.com/italy/serie-c-play-out/fixtures/',
-'Norway-Division 1 Women': 'https://www.soccerway.com/norway/division-1-women/fixtures/',
-'Norway-Eliteserien': 'https://www.soccerway.com/norway/eliteserien/fixtures/',
-'Norway-NM Cupen': 'https://www.soccerway.com/norway/nm-cup/fixtures/',
-'Norway-OBOS-ligaen': 'https://www.soccerway.com/norway/obos-ligaen/fixtures/',
-'Norway-Toppserien Women': 'https://www.soccerway.com/norway/toppserien-women/fixtures/',
-'Portugal-Liga Portugal': 'https://www.soccerway.com/portugal/liga-portugal/fixtures/',
-'Romania-Superliga': 'https://www.soccerway.com/romania/superliga/fixtures/',
-'Romania-Romanian Cup': 'https://www.soccerway.com/romania/superliga-women/fixtures/',
-'Spain-Liga F Women': 'https://www.soccerway.com/spain/liga-f-women/fixtures/',
-'Sweden-Allsvenskan Women': 'https://www.soccerway.com/sweden/allsvenskan-women/fixtures/',
-'Sweden-Elitettan Women': 'https://www.soccerway.com/sweden/elitettan-women/fixtures/',
-'UNITED ARAB EMIRATES-UAE League': 'https://www.soccerway.com/united-arab-emirates/uae-league/fixtures/',
-'USA-MLS': 'https://www.soccerway.com/usa/mls/fixtures/',
-'Uzbekistan-Super League': 'https://www.soccerway.com/uzbekistan/super-league/fixtures/',
-
+    "Belgian Cup":                          "https://www.soccerway.com/belgium/belgian-cup/fixtures/",
+    "First Division B":                     "https://www.soccerway.com/belgium/challenger-pro-league/fixtures/",
+    "Jupiler Pro League":                   "https://www.soccerway.com/belgium/jupiler-pro-league/fixtures/",
+    "Brasileiro Women":                     "https://www.soccerway.com/brazil/brasileiro-women/fixtures/",
+    "Super League (China)":                 "https://www.soccerway.com/china/super-league/fixtures/",
+    "Czech Cup":                            "https://www.soccerway.com/czech-republic/mol-cup/fixtures/",
+    "Chance Liga":                          "https://www.soccerway.com/czech-republic/chance-liga/fixtures/",
+    "EFL Cup":                              "https://www.soccerway.com/england/efl-cup/fixtures/",
+    "FA Cup":                               "https://www.soccerway.com/england/fa-cup/fixtures/",
+    "Premier League":                       "https://www.soccerway.com/england/premier-league/fixtures/",
+    "Womens Champions League":              "https://www.soccerway.com/europe/champions-league-women/fixtures/",
+    "Womens League Cup":                    "https://www.soccerway.com/england/women-s-league-cup/fixtures/",
+    "WSL":                                  "https://www.soccerway.com/england/wsl/fixtures/",
+    "Championship":                         "https://www.soccerway.com/england/championship/fixtures/",
+    "League One":                           "https://www.soccerway.com/england/league-one/fixtures/",
+    "League Two":                           "https://www.soccerway.com/england/league-two/fixtures/",
+    "U18 Premier League":                   "https://www.soccerway.com/england/premier-league-u18/fixtures/",
+    "Professional Development League":      "https://www.soccerway.com/england/professional-development-league/fixtures/",
+    "Scottish Premiership":                 "https://www.soccerway.com/scotland/premiership/fixtures/",
+    "Bundesliga":                           "https://www.soccerway.com/germany/bundesliga/fixtures/",
+    "Serie A":                              "https://www.soccerway.com/italy/serie-a/fixtures/",
+    "Serie B":                              "https://www.soccerway.com/italy/serie-b/fixtures/",
+    "Serie C - Group A":                    "https://www.soccerway.com/italy/serie-c-group-a/fixtures/",
+    "Serie C - Group B":                    "https://www.soccerway.com/italy/serie-c-group-b/fixtures/",
+    "Serie C - Group C":                    "https://www.soccerway.com/italy/serie-c-group-c/fixtures/",
+    "Serie C - Promotion Play Offs":        "https://www.soccerway.com/italy/serie-c-promotion-play-offs/fixtures/",
+    "Serie C - Play Out":                   "https://www.soccerway.com/italy/serie-c-play-out/fixtures/",
+    "1. Division Women (Norway)":           "https://www.soccerway.com/norway/division-1-women/fixtures/",
+    "Eliteserien":                          "https://www.soccerway.com/norway/eliteserien/fixtures/",
+    "NM Cupen":                             "https://www.soccerway.com/norway/nm-cup/fixtures/",
+    "OBOS-ligaen":                          "https://www.soccerway.com/norway/obos-ligaen/fixtures/",
+    "Toppserien Women":                     "https://www.soccerway.com/norway/toppserien-women/fixtures/",
+    "Liga Portugal":                        "https://www.soccerway.com/portugal/liga-portugal/fixtures/",
+    "LIGA I (Romania)":                     "https://www.soccerway.com/romania/superliga/fixtures/",
+    "Superliga Women (Romania)":            "https://www.soccerway.com/romania/superliga-women/fixtures/",
+    "Liga F Women":                         "https://www.soccerway.com/spain/liga-f-women/fixtures/",
+    "Damallsvenskan":                       "https://www.soccerway.com/sweden/allsvenskan-women/fixtures/",
+    "Elitettan Women":                      "https://www.soccerway.com/sweden/elitettan-women/fixtures/",
+    "UAE League":                           "https://www.soccerway.com/united-arab-emirates/uae-league/fixtures/",
+    "MLS":                                  "https://www.soccerway.com/usa/mls/fixtures/",
+    "Super League (Uzbekistan)":            "https://www.soccerway.com/uzbekistan/super-league/fixtures/",
 }
 
 SHEET_HEADERS = [
@@ -341,8 +343,36 @@ def scrape_url(league_name, url):
 
 # ── GOOGLE SHEETS ─────────────────────────────────────────────────────────────
 
+def parse_to_serial(date_str, time_str=""):
+    """Convert 'DD Month YYYY' + 'HH:MM' to a Google Sheets date/time serial number."""
+    from datetime import date as date_cls
+    GS_EPOCH = date_cls(1899, 12, 30)
+    try:
+        d = datetime.strptime(date_str.strip(), "%d %B %Y")
+        date_serial = (d.date() - GS_EPOCH).days
+        time_serial = 0.0
+        if time_str and time_str.strip():
+            t = datetime.strptime(time_str.strip(), "%H:%M")
+            time_serial = (t.hour * 3600 + t.minute * 60) / 86400.0
+        return date_serial, time_serial, date_serial + time_serial
+    except Exception:
+        return None, None, None
+
+
+def parse_ist_serial(ist_str):
+    """Convert 'DD-Mon-YYYY HH:MM' to a Google Sheets datetime serial number."""
+    from datetime import date as date_cls
+    GS_EPOCH = date_cls(1899, 12, 30)
+    try:
+        dt = datetime.strptime(ist_str.strip(), "%d-%b-%Y %H:%M")
+        date_serial = (dt.date() - GS_EPOCH).days
+        time_serial = (dt.hour * 3600 + dt.minute * 60) / 86400.0
+        return date_serial + time_serial
+    except Exception:
+        return None
+
+
 def write_to_sheets(df):
-    # Decode base64 credentials from the secret
     creds_json = json.loads(base64.b64decode(GOOGLE_CREDS_B64).decode("utf-8"))
     creds      = Credentials.from_service_account_info(
         creds_json,
@@ -361,25 +391,52 @@ def write_to_sheets(df):
 
     ws.clear()
 
+    # Build rows — E=Local Date, F=Local Time, G=IST Time written as numeric serials
     rows = [SHEET_HEADERS]
     for _, row in df.iterrows():
-        rows.append([str(row.get(h, "")) for h in SHEET_HEADERS])
+        r = [str(row.get(h, "") or "") for h in SHEET_HEADERS]
 
-    # Write in chunks of 500 rows to stay within Google API limits
+        date_serial, time_serial, _ = parse_to_serial(
+            row.get("Local Date", ""), row.get("Local Time", "")
+        )
+        ist_serial = parse_ist_serial(row.get("IST Time", ""))
+
+        # Col E (index 4) = Local Date
+        r[4] = date_serial  if date_serial  is not None else r[4]
+        # Col F (index 5) = Local Time
+        r[5] = time_serial  if time_serial  is not None else r[5]
+        # Col G (index 6) = IST Time
+        r[6] = ist_serial   if ist_serial   is not None else r[6]
+
+        rows.append(r)
+
+    # Write using USER_ENTERED so Sheets interprets numeric serials as dates
     for i in range(0, len(rows), 500):
         chunk     = rows[i : i + 500]
         start_row = i + 1
         end_col   = chr(64 + len(SHEET_HEADERS))
-        ws.update(f"A{start_row}:{end_col}{start_row + len(chunk) - 1}", chunk)
+        ws.update(
+            f"A{start_row}:{end_col}{start_row + len(chunk) - 1}",
+            chunk,
+            value_input_option="USER_ENTERED",
+        )
         time.sleep(1)
 
-    # Bold header
+    total_rows = len(rows)
+
+    # Apply date/time number formats to columns E, F, G
+    ws.format(f"E2:E{total_rows}", {"numberFormat": {"type": "DATE",      "pattern": "dd mmm yyyy"}})
+    ws.format(f"F2:F{total_rows}", {"numberFormat": {"type": "TIME",      "pattern": "hh:mm"}})
+    ws.format(f"G2:G{total_rows}", {"numberFormat": {"type": "DATE_TIME", "pattern": "dd mmm yyyy hh:mm"}})
+
+    # Bold blue header row
     ws.format("A1:J1", {
         "textFormat":      {"bold": True, "foregroundColor": {"red": 1, "green": 1, "blue": 1}},
         "backgroundColor": {"red": 0.08, "green": 0.40, "blue": 0.75},
     })
 
     print(f"\n✅ {len(df)} fixtures written to Google Sheets → '{WORKSHEET_NAME}' tab.")
+
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
