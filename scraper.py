@@ -88,7 +88,6 @@ URLS = {
     "Toppserien Women":                     "https://www.soccerway.com/norway/toppserien-women/fixtures/",
     "Liga Portugal":                        "https://www.soccerway.com/portugal/liga-portugal/fixtures/",
     "LIGA I (Romania)":                     "https://www.soccerway.com/romania/superliga/fixtures/",
-    "Superliga Women (Romania)":            "https://www.soccerway.com/romania/superliga-women/fixtures/",
     "Liga F Women":                         "https://www.soccerway.com/spain/liga-f-women/fixtures/",
     "Damallsvenskan":                       "https://www.soccerway.com/sweden/allsvenskan-women/fixtures/",
     "Elitettan Women":                      "https://www.soccerway.com/sweden/elitettan-women/fixtures/",
