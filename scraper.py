@@ -33,14 +33,14 @@ COUNTRY_TIMEZONE_MAP = {
     "UZBEKISTAN": "Asia/Tashkent",
 }
 
-# IST timezone (used globally so year/month logic is always consistent,
-# regardless of whether the script runs locally or on a UTC server like GitHub Actions)
+# Timezones used globally
+UTC = pytz.utc
 IST = pytz.timezone("Asia/Kolkata")
 
 
-# Add year to date — always evaluated in IST, never system-local time
+# Add year to date — always evaluated in UTC (matches GitHub Actions server time)
 def add_year_to_date(date):
-    today = datetime.now(IST)          # ← IST, not system clock
+    today = datetime.now(UTC)          # ← UTC, consistent on all servers
     day, month_ = date.split(".")[:2]
 
     if int(month_) < today.month:
@@ -79,40 +79,44 @@ def clean_competition(value, league=""):
     return s
 
 
-# Convert IST → Local + UTC
-# Returns (local_date, local_time, utc_datetime_str)
-def convert_ist_to_local(date_str, time_str, country):
+# Convert UTC (scraped) → Local + IST + UTC string
+# Soccerway serves times in UTC when running on GitHub Actions (server is UTC).
+# Returns (local_date, local_time, ist_str, utc_str)
+def convert_utc_to_local(date_str, time_str, country):
 
     if not date_str or not time_str or time_str.upper() == "FULL TIME":
-        return "", "", ""
+        return "", "", "", ""
 
     try:
         dt_naive = datetime.strptime(f"{date_str} {time_str}", "%d %B %Y %H:%M")
 
-        # Treat scraped time as IST (Soccerway always serves IST)
-        dt_ist = IST.localize(dt_naive)
+        # Treat scraped time as UTC
+        dt_utc = UTC.localize(dt_naive)
 
-        # → UTC
-        utc = pytz.utc
-        dt_utc = dt_ist.astimezone(utc)
+        # → IST
+        dt_ist = dt_utc.astimezone(IST)
+        ist_str = dt_ist.strftime("%d-%b-%Y %H:%M")
+
+        # → UTC string (same format as IST for consistency)
         utc_str = dt_utc.strftime("%d-%b-%Y %H:%M")
 
         # → Country local time
         tz_name = COUNTRY_TIMEZONE_MAP.get(country.upper())
         if not tz_name:
-            return "", "", utc_str
+            return "", "", ist_str, utc_str
 
         local_tz = pytz.timezone(tz_name)
-        dt_local = dt_ist.astimezone(local_tz)
+        dt_local = dt_utc.astimezone(local_tz)
 
         return (
             dt_local.strftime("%d %B %Y"),
             dt_local.strftime("%H:%M"),
+            ist_str,
             utc_str,
         )
 
     except:
-        return "", "", ""
+        return "", "", "", ""
 
 
 def scrape_url(league_name, url):
@@ -330,41 +334,7 @@ def scrape_url(league_name, url):
 
 
 urls = {
-    'Brazil-Brasileiro Women': 'https://www.soccerway.com/brazil/brasileiro-women/fixtures/',
-    'China-Super League': 'https://www.soccerway.com/china/super-league/fixtures/',
-    'CZECH REPUBLIC-Chance Liga': 'https://www.soccerway.com/czech-republic/chance-liga/fixtures/',
-    'England-EFL Cup': 'https://www.soccerway.com/england/efl-cup/fixtures/',
-    'England-FA Cup': 'https://www.soccerway.com/england/fa-cup/fixtures/',
-    'England-Premier League': 'https://www.soccerway.com/england/premier-league/fixtures/',
-    'England-Womens League Cup': 'https://www.soccerway.com/england/women-s-league-cup/fixtures/',
     'England-WSL': 'https://www.soccerway.com/england/wsl/fixtures/',
-    'England-Championship': 'https://www.soccerway.com/england/championship/fixtures/',
-    'England-League One': 'https://www.soccerway.com/england/league-one/fixtures/',
-    'England-League Two': 'https://www.soccerway.com/england/league-two/fixtures/',
-    'England-Premier League U18': 'https://www.soccerway.com/england/premier-league-u18/fixtures/',
-    'England-U23s Professional Development League': 'https://www.soccerway.com/england/professional-development-league/fixtures/',
-    'Scotland-Premiership': 'https://www.soccerway.com/scotland/premiership/fixtures/',
-    'Germany-Bundesliga': 'https://www.soccerway.com/germany/bundesliga/fixtures/',
-    'Italy-Serie A': 'https://www.soccerway.com/italy/serie-a/fixtures/',
-    'Italy-Serie B': 'https://www.soccerway.com/italy/serie-b/fixtures/',
-    'Italy-Serie C - Group A': 'https://www.soccerway.com/italy/serie-c-group-a/fixtures/',
-    'Italy-Serie C - Group B': 'https://www.soccerway.com/italy/serie-c-group-b/fixtures/',
-    'Italy-Serie C - Group C': 'https://www.soccerway.com/italy/serie-c-group-c/fixtures/',
-    'Italy-Serie C - Promotion - Play Offs': 'https://www.soccerway.com/italy/serie-c-promotion-play-offs/fixtures/#/Eu1PLKgD/draw/',
-    'Italy-Serie C - Play Out': 'https://www.soccerway.com/italy/serie-c-play-out/fixtures/',
-    'Norway-Division 1 Women': 'https://www.soccerway.com/norway/division-1-women/fixtures/',
-    'Norway-Eliteserien': 'https://www.soccerway.com/norway/eliteserien/fixtures/',
-    'Norway-NM Cupen': 'https://www.soccerway.com/norway/nm-cup/fixtures/',
-    'Norway-OBOS-ligaen': 'https://www.soccerway.com/norway/obos-ligaen/fixtures/',
-    'Norway-Toppserien Women': 'https://www.soccerway.com/norway/toppserien-women/fixtures/',
-    'Portugal-Liga Portugal': 'https://www.soccerway.com/portugal/liga-portugal/fixtures/',
-    'Romania-Superliga': 'https://www.soccerway.com/romania/superliga/fixtures/',
-    'Spain-Liga F Women': 'https://www.soccerway.com/spain/liga-f-women/fixtures/',
-    'Sweden-Allsvenskan Women': 'https://www.soccerway.com/sweden/allsvenskan-women/fixtures/',
-    'Sweden-Elitettan Women': 'https://www.soccerway.com/sweden/elitettan-women/fixtures/',
-    'UNITED ARAB EMIRATES-UAE League': 'https://www.soccerway.com/united-arab-emirates/uae-league/fixtures/',
-    'USA-MLS': 'https://www.soccerway.com/usa/mls/fixtures/',
-    'Uzbekistan-Super League': 'https://www.soccerway.com/uzbekistan/super-league/fixtures/'
 }
 
 all_data = []
@@ -386,27 +356,13 @@ if df.empty:
     print("No data scraped.")
 else:
 
-    df["Local Date"], df["Local Time"], df["UTC Time"] = zip(
+    df["Local Date"], df["Local Time"], df["IST Time"], df["UTC Time"] = zip(
         *df.apply(
-            lambda row: convert_ist_to_local(
+            lambda row: convert_utc_to_local(
                 row["Date"], row["Time"], row["Country"]
             ),
             axis=1
         )
-    )
-
-    # Merge IST Date + Time into a single "IST Time" column (dd-MMM-YYYY HH:mm)
-    def format_ist_datetime(date_str, time_str):
-        if not date_str or not time_str:
-            return ""
-        try:
-            dt = datetime.strptime(f"{date_str} {time_str}", "%d %B %Y %H:%M")
-            return dt.strftime("%d-%b-%Y %H:%M")
-        except:
-            return ""
-
-    df["IST Time"] = df.apply(
-        lambda row: format_ist_datetime(row["Date"], row["Time"]), axis=1
     )
 
     df = df[
@@ -417,11 +373,11 @@ else:
             "Round",
             "Local Date",
             "Local Time",
-            "IST Time",      # IST datetime merged
+            "IST Time",      # UTC + 5:30
             "Home Team",
             "Away Team",
             "Fixture Page",
-            "UTC Time",      # UTC datetime — added at end
+            "UTC Time",      # raw scraped time (server is UTC)
         ]
     ]
 
