@@ -128,7 +128,11 @@ def scrape_url(league_name, url):
 
         service = Service(ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")
+        options.add_argument("--headless=new")          # required on GitHub Actions (no display)
+        options.add_argument("--no-sandbox")            # required in container/CI environments
+        options.add_argument("--disable-dev-shm-usage") # prevents crashes on low /dev/shm
+        options.add_argument("--disable-gpu")           # not needed headless, avoids warnings
+        options.add_argument("--window-size=1920,1080") # replaces --start-maximized in headless
 
         driver = webdriver.Chrome(service=service, options=options)
 
